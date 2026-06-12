@@ -1,0 +1,23 @@
+#usage "Export unrouted airwires (layer 19) to <board>.airwires.txt.\n"
+       "Run RATSNEST first so the airwires are current, then RUN this ULP from the board."
+
+string out = "";
+int n = 0;
+
+if (board) board(B) {
+  B.signals(S) {
+    S.wires(W) {
+      if (W.layer == 19) {            // 19 = Unrouted (airwires)
+        string ln;
+        sprintf(ln, "%f %f %f %f %s\n",
+                u2mm(W.x1), u2mm(W.y1), u2mm(W.x2), u2mm(W.y2), S.name);
+        out += ln;
+        n++;
+      }
+    }
+  }
+  string fn = filesetext(B.name, ".airwires.txt");
+  output(fn, "wt") printf("%s", out);
+  dlgMessageBox("Exported " + n + " airwires (mm, coords first) to:\n" + fn);
+}
+else dlgMessageBox("Open a board (.brd) first, then RUN this ULP.");
