@@ -46,3 +46,11 @@ distributed free of charge), in the SVG-webfont form used by Boldport's
 PCBmodE for board wordmarks. The font is included for faithful reproduction
 of Boldport silkscreen text and is not covered by this repository's MIT
 license.
+
+## The result
+
+The ported board (the-cuttle2 r1.1), rendered by JLCPCB's 3D viewer from the
+Eagle CAM Gerbers:
+
+![The Cuttle — top](renders/the-cuttle-3d-top.png)
+![The Cuttle — bottom](renders/the-cuttle-3d-bottom.png)
